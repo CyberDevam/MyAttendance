@@ -11,14 +11,7 @@
 </head>
 
 <body>
-  <nav class="navbar">
-    <h3 class="headTitle">MyAttendance</h3>
-    <ul class="nav-links">
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="./STUDENT/student_dashboard.html">Student Profile</a></li>
-    </ul>
-  </nav>
+  <?php include('../COMPONENTS/Navbar.php') ?>
 
   <main class="container">
 
@@ -37,7 +30,6 @@
     </div>
   </section>
 
-  <!-- INFO CARDS -->
   <section class="cards">
     <div class="card">
       <h3>Why MyAttendance?</h3>

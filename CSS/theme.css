@@ -6,6 +6,7 @@
   --dark-green: #89986D;
   --navbar-height: 72px;
 }
+/* https://colorhunt.co/palette/f6f0d7c5d89d9cab8489986d */
 
 * {
   margin: 0;
@@ -24,7 +25,7 @@ body {
 }
 /* Container */
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: auto;
   padding: 60px 30px;
 }
@@ -38,20 +39,20 @@ body {
   );
   margin-top: 20px;
   color: var(--cream);
-  padding: 70px;
+  padding: 80px;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   line-height: 1.2;
 }
 
 .hero p {
   margin-top: 20px;
   max-width: 600px;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   opacity: 0.95;
 }
 
@@ -61,10 +62,10 @@ body {
 }
 
 .btn {
-  padding: 12px 26px;
-  border-radius: 30px;
+  padding: 23px 41px;
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   margin-right: 15px;
   display: inline-block;
 }
@@ -103,10 +104,6 @@ body {
   line-height: 1.6;
 }
 
-
-/* ---------- RESPONSIVE ---------- */
-
-/* Tablets */
 @media (max-width: 992px) {
   .hero {
     margin-top: 48px;
@@ -118,7 +115,6 @@ body {
   }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .container {
     padding: 40px 20px;

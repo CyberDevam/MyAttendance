@@ -84,7 +84,7 @@ I can:
 
 
 
-Perfect choice 👍 — Attendance Management System is exactly what colleges like: clean, useful, and easy to defend in viva.
+ Perfect choice 👍 — Attendance Management System is exactly what colleges like: clean, useful, and easy to defend in viva.
 Below is a clear, step-by-step project plan you can directly follow.
 
 📌 Project Title
@@ -454,3 +454,9 @@ If you want next, I can:
 * Write attendance marking PHP logic
 * Create Chart.js code
 Just say the word 🚀
+
+
+
+
+
+https://aistudio.google.com/apps/temp/1?showAssistant=true&showPreview=true
