@@ -1,0 +1,478 @@
+📘 1. DATABASE & TABLE QUERIES
+Create Database
+CREATE DATABASE attendance_system;
+USE attendance_system;
+
+Show Databases / Tables
+SHOW DATABASES;
+SHOW TABLES;
+
+👤 2. ADMIN QUERIES
+Insert Admin
+INSERT INTO admin (username, password)
+VALUES ('admin', 'hashed_password');
+
+Admin Login Check
+SELECT * FROM admin
+WHERE username = 'admin' AND password = 'hashed_password';
+
+
+👨‍🏫 3. TEACHER QUERIES (CRUD)
+Add Teacher
+INSERT INTO teachers (name, email, password)
+VALUES ('John Doe', 'john@gmail.com', 'hashed_password');
+
+View All Teachers
+SELECT * FROM teachers;
+
+Get Teacher by ID
+SELECT * FROM teachers WHERE teacher_id = 1;
+
+Update Teacher
+UPDATE teachers
+SET name = 'John Smith', email = 'johnsmith@gmail.com'
+WHERE teacher_id = 1;
+
+Delete Teacher
+DELETE FROM teachers WHERE teacher_id = 1;
+
+Teacher Login
+SELECT * FROM teachers
+WHERE email = 'john@gmail.com' AND password = 'hashed_password';
+
+
+👨‍🎓 4. STUDENT QUERIES (CRUD)
+Add Student
+INSERT INTO students (name, roll_no, division, semester, email, password)
+VALUES ('Alice', 'CS01', 'A', 5, 'alice@gmail.com', 'hashed_password');
+
+View All Students
+SELECT * FROM students;
+
+View Students by Division & Semester
+SELECT * FROM students
+WHERE division = 'A' AND semester = 5;
+
+Update Student
+UPDATE students
+SET division = 'B', semester = 6
+WHERE student_id = 1;
+
+Delete Student
+DELETE FROM students WHERE student_id = 1;
+
+Student Login
+SELECT * FROM students
+WHERE email = 'alice@gmail.com' AND password = 'hashed_password';
+
+
+📚 5. SUBJECT QUERIES
+Add Subject
+INSERT INTO subjects (subject_name, semester, teacher_id)
+VALUES ('DBMS', 5, 2);
+
+View All Subjects
+SELECT * FROM subjects;
+
+View Subjects by Teacher
+SELECT * FROM subjects
+WHERE teacher_id = 2;
+
+Update Subject
+UPDATE subjects
+SET subject_name = 'Advanced DBMS'
+WHERE subject_id = 1;
+
+Delete Subject
+DELETE FROM subjects WHERE subject_id = 1;
+
+
+🗓 6. ATTENDANCE QUERIES (MOST IMPORTANT)
+Mark Attendance (Insert)
+INSERT INTO attendance (student_id, subject_id, date, status)
+VALUES (1, 2, '2026-01-20', 'P');
+
+Prevent Duplicate Attendance (Already Handled by UNIQUE key)
+Update Attendance
+UPDATE attendance
+SET status = 'A'
+WHERE student_id = 1 AND subject_id = 2 AND date = '2026-01-20';
+
+Delete Attendance (If needed)
+DELETE FROM attendance
+WHERE attendance_id = 5;
+
+
+
+You said:
+IDEA   Got it — you want simple, safe-for-college, not overkill 😄Here are easy project ideas that perfectly fit all your conditions.  ✅ Best Simple Project Idea (Recommended) Student Event Management System 🔹 What it does A small web app to manage college events where students can view events and admins can manage them.  📄 Minimum 5 View Pages 1. Home Page – Intro + upcoming events 2. Events Page – List of all events 3. Event Details Page – Single event info 4. Student Registration Page – Register for an event 5. Login Page – Admin login 6. (Optional) About / Contact page ✔ You already exceed 5 pages easily.  🔐 Admin Panel (Must-have) Admin can: * Login/logout * Add new events * Edit/Delete events * View registered students Simple CRUD operations — teachers love this.  🗄 Database Integration Tables: * users (admin login) * events (event info) * registrations (student registrations) Can use: * MySQL / PostgreSQL * MongoDB (if using Node.js)  ⚙ Small Backend Backend handles: * Login authentication * Event CRUD * Store registrations Tech stack (simple options): * Frontend: HTML, CSS, Bootstrap * Backend: PHP / Node.js / Python Flask * Database: MySQL  🟢 Other Simple Project Ideas (If you want options) 1️⃣ Online Book Store (Mini Version) * Pages: Home, Books, Book Details, Cart, Login * Admin: Add/Edit/Delete books * DB: Books, Orders, Users  2️⃣ College Complaint Management System * Students submit complaints * Admin views & updates status * Very easy logic, good for evaluation  3️⃣ Attendance Management System * Admin marks attendance * Students view attendance * Clean and very academic-friendly  4️⃣ Restaurant Table Reservation System * Users book tables * Admin manages bookings * Simple backend logic  🧠 Why these work well * Easy to explain in viva * CRUD-based (teachers expect this) * No complex algorithms * Clean database usage  If you want, tell me: * Which language/framework you’re using? * Is it individual or group project? I can: * Design database schema * Create page list * Give backend logic * Even help with project report 😉       Perfect choice 👍 — Attendance Management System is exactly what colleges like: clean, useful, and easy to defend in viva. Below is a clear, step-by-step project plan you can directly follow.  📌 Project Title Attendance Management System  🎯 Project Objective To develop a web-based system that allows admins/teachers to mark attendance and students to view their attendance records securely.  📄 View Pages (5+ Minimum – Covered) 1️⃣ Home Page * Project overview * Login buttons (Admin / Student) 2️⃣ Admin Login Page * Secure admin authentication 3️⃣ Admin Dashboard * Add students * Add subjects * Mark attendance * View attendance reports 4️⃣ Mark Attendance Page * Select subject * Select date * Mark present/absent 5️⃣ Student Login Page * Student authentication 6️⃣ Student Dashboard * View personal attendance * Attendance percentage ✔ Requirement satisfied.  🔐 Admin Panel Features Admin can: * Login / Logout * Add, Edit, Delete students * Add subjects * Mark daily attendance * View attendance by date / subject (Simple CRUD operations — very scoring)  👨‍🎓 Student Features Student can: * Login * View attendance records * See total attendance percentage * Cannot modify data (read-only access)  🗄 Database Design (Simple & Clean) Tables 📘 admin | id | username | password | 📘 students | id | name | roll_no | email | password | 📘 subjects | id | subject_name | 📘 attendance | id | student_id | subject_id | date | status |  ⚙ Backend Logic (Small & Easy) Admin Side * Authenticate admin * Fetch students & subjects * Insert attendance records * Update attendance if needed Student Side * Authenticate student * Fetch attendance records * Calculate attendance percentage  🧰 Suggested Tech Stack Choose whatever your syllabus supports: ✅ Beginner Friendly * Frontend: HTML, CSS, Bootstrap * Backend: PHP * Database: MySQL ✅ Modern Option * Frontend: HTML, CSS, Bootstrap * Backend: Node.js (Express) * Database: MongoDB / MySQL  📝 Viva Explanation (One-Liner) “This system digitizes attendance management by allowing admins to record attendance efficiently and students to monitor their attendance in real time.”  🟢 Extra Features (Optional, for Bonus Marks) * Attendance percentage calculation * Date-wise filtering * Export attendance (CSV) * Forgot password  If you want next, I can: * Draw ER diagram * Create database SQL queries * Design admin panel pages * Write backend code * Help with project report & PPT Just tell me what you need next 🚀       Yes — 100% possible, and what you described is actually a very solid, well-structured academic system. 👍Your flow makes sense, is secure, and fits HTML + CSS + JS + PHP + MySQL + Bootstrap perfectly. Below is a clean system flow + tech stack + role-wise access you can directly use in your project documentation.  📘 Attendance Management System (Monthly, Role-Based) 👥 User Roles 1. Admin 2. Teacher 3. Student Each role has separate access and permissions.  🔐 Role-Based Access Control (Important for Viva) Feature	Admin	Teacher	Student Login	✅	✅	✅ Add/Edit Students	✅	❌	❌ Add/Edit Teachers	✅	❌	❌ Add Subjects	✅	❌	❌ Add Division / Semester	✅	❌	❌ Mark Attendance	❌	✅	❌ Edit Attendance	❌	✅	❌ View Attendance Reports	✅	✅	❌ View Own Attendance Graph	❌	❌	✅ ✔ Student can ONLY see their own attendance✔ Teacher can mark & edit attendance✔ Admin controls all master data  🔄 System Flow (Step-by-Step) 1️⃣ Login Flow * User selects role (Admin / Teacher / Student) * Enters credentials * System redirects to role-specific dashboard  2️⃣ Admin Flow Admin Dashboard * Add / Edit / Delete:     * Students     * Teachers     * Subjects     * Semester     * Division * Assign teachers to subjects * View attendance reports (monthly / subject-wise)  3️⃣ Teacher Flow Teacher Dashboard 1. Select:     * Subject     * Semester     * Division     * Date 2. System fetches student list 3. Teacher marks attendance using:     * ✔ Tick (Present)     * ✖ Absent 4. Submit attendance 5. Teacher can edit attendance later ✔ Very realistic and easy to demonstrate  4️⃣ Student Flow Student Dashboard * View ONLY own attendance * Monthly attendance summary * Attendance percentage * Graph (Bar / Line chart) 📊 Example: * Jan: 85% * Feb: 90% * Mar: 78% No access to others’ data → security point for viva  📊 Attendance Graph (Student Only) Graph Type * Monthly Bar Chart or Line Chart JavaScript Library * Chart.js (lightweight & simple) ✔ Fetch data via PHP → JSON → JS graph  🗄 Database Structure (MySQL) 📘 admin admin_id username password 📘 teachers teacher_id name email password 📘 students student_id name roll_no division semester email password 📘 subjects subject_id subject_name semester teacher_id 📘 attendance attendance_id student_id subject_id date status (P/A)  ⚙ Backend Logic (PHP) 🔹 Admin * CRUD students, teachers, subjects * Assign subjects * Generate reports 🔹 Teacher * Insert attendance * Update attendance * Fetch students by division & semester 🔹 Student * Fetch own attendance * Calculate monthly percentage * Send data to Chart.js  🧰 Tech Stack (Exactly What You Asked) 🌐 Frontend * HTML * CSS * Bootstrap * JavaScript 🔧 Backend * PHP (Procedural or MVC style) 🗄 Database * MySQL 📊 Graph * Chart.js (JS library)  🧠 Viva-Friendly Explanation “The system follows role-based access control where admins manage academic data, teachers record attendance, and students securely view only their own monthly attendance through graphical representation.”  🟢 Extra (Optional, for Higher Marks) * Attendance lock after submission * Export monthly report (PDF) * Password encryption (MD5 / bcrypt) * Session-based authentication  If you want next, I can: * Draw flow diagram * Create ER diagram * Provide SQL queries * Give attendance marking page UI * Write PHP backend code Just tell me what you want next 👌      Nice, this will make your project look very professional 👍Below are clear, exam-ready diagrams you can redraw in draw.io / PPT / paper exactly as shown.  🔄 SYSTEM FLOW DIAGRAM (Role-Based)                 ┌───────────────┐                 │   Start App   │                 └───────┬───────┘                         │                         ▼                 ┌───────────────┐                 │  Login Page   │                 └───────┬───────┘                         │         ┌───────────────┼────────────────┐         ▼               ▼                ▼  ┌──────────┐     ┌──────────┐     ┌──────────┐  │  Admin   │     │ Teacher  │     │ Student  │  │  Login   │     │  Login   │     │  Login   │  └────┬─────┘     └────┬─────┘     └────┬─────┘       │                │                │       ▼                ▼                ▼ ┌────────────┐  ┌────────────┐  ┌────────────┐ │ Admin Dash │  │ TeacherDash│  │ StudentDash│ └────┬───────┘  └────┬───────┘  └────┬───────┘      │               │                │      │               │                │      ▼               ▼                ▼ ┌────────────┐ ┌────────────┐ ┌──────────────┐ │ Add/Edit   │ │ Select     │ │ View Monthly │ │ Students   │ │ Subject    │ │ Attendance   │ │ Teachers   │ │ Division   │ │ Graph (Self) │ │ Subjects   │ │ Date       │ └──────────────┘ └────┬───────┘ └────┬───────┘      │               │      ▼               ▼ ┌────────────┐ ┌────────────┐ │ View       │ │ Mark Tick  │ │ Reports    │ │ Present / │ └────────────┘ │ Absent     │                 └────┬──────┘                      ▼               ┌────────────┐               │ Save/Edit  │               │ Attendance │               └────────────┘ 🔑 Key Points to Say in Viva * Role-based access * Student cannot modify data * Teacher can edit attendance * Admin controls master data  🗄 DATABASE FLOW DIAGRAM (Logical Flow) ┌─────────┐ │  ADMIN  │ └────┬────┘      │ creates      ▼ ┌────────────┐ │  TEACHERS  │◄──────────────┐ └────┬───────┘               │      │ assigned              │      ▼                       │ ┌────────────┐               │ │  SUBJECTS  │───────────────┘ └────┬───────┘      │      │ attendance taken for      ▼ ┌────────────┐ │ ATTENDANCE │ └────┬───────┘      │      │ belongs to      ▼ ┌────────────┐ │  STUDENTS  │ └────────────┘  🧩 Table Relationship (Explain Like This) Relationships: * Admin → Students (1 : Many) * Admin → Teachers (1 : Many) * Teacher → Subjects (1 : Many) * Student → Attendance (1 : Many) * Subject → Attendance (1 : Many)  📊 Student Attendance Graph Flow Student Login       ↓ Fetch Attendance (student_id)       ↓ Group by Month (PHP)       ↓ Send JSON Data       ↓ Chart.js Graph ✔ Student only sees own data using student_id from session.  🧠 One-Line Diagram Explanation (For Examiner) “The system uses role-based flow where admin manages academic entities, teachers record attendance, and students securely view their monthly attendance graph fetched from the database.”  📌 How to Draw This for Submission Use: * draw.io * MS PowerPoint * Lucidchart Redraw: * Rectangles → Processes * Diamonds → Decisions (optional) * Arrows → Flow  If you want next, I can: * Convert this into ER Diagram * Give SQL CREATE TABLE * Write attendance marking PHP logic * Create Chart.js code Just say the word 🚀      https://aistudio.google.com/apps/temp/1?showAssistant=true&showPreview=true provide me mysql code for the databases
+ChatGPT said:
+Perfect 👍
+Below is clean, viva-ready MySQL SQL code for your Attendance Management System (Admin + Teacher + Student, Monthly Attendance).
+You can copy-paste this directly into phpMyAdmin / MySQL Workbench.
+
+📘 Database Creation
+CREATE DATABASE attendance_system;
+USE attendance_system;
+👤 Admin Table
+CREATE TABLE admin (
+    admin_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+👨‍🏫 Teachers Table
+CREATE TABLE teachers (
+    teacher_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+👨‍🎓 Students Table
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    roll_no VARCHAR(20) UNIQUE NOT NULL,
+    division VARCHAR(10),
+    semester INT,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+📚 Subjects Table
+CREATE TABLE subjects (
+    subject_id INT AUTO_INCREMENT PRIMARY KEY,
+    subject_name VARCHAR(100) NOT NULL,
+    semester INT NOT NULL,
+    teacher_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id)
+        ON DELETE SET NULL
+);
+🗓 Attendance Table
+CREATE TABLE attendance (
+    attendance_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    date DATE NOT NULL,
+    status ENUM('P','A') NOT NULL,
+    
+    FOREIGN KEY (student_id) REFERENCES students(student_id)
+        ON DELETE CASCADE,
+    FOREIGN KEY (subject_id) REFERENCES subjects(subject_id)
+        ON DELETE CASCADE,
+
+    UNIQUE (student_id, subject_id, date)
+);
+✔ UNIQUE constraint prevents duplicate attendance for same day
+
+🔐 (Optional but Recommended) User Sessions / Login Security
+If your teacher asks about security, you can mention sessions + password hashing.
+
+Example password hashing (PHP)
+$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+📊 Sample Queries (For Viva)
+Mark Attendance
+INSERT INTO attendance (student_id, subject_id, date, status)
+VALUES (1, 2, '2026-01-15', 'P');
+Update Attendance
+UPDATE attendance
+SET status = 'A'
+WHERE student_id = 1 AND subject_id = 2 AND date = '2026-01-15';
+Student Monthly Attendance Percentage
+SELECT 
+    MONTH(date) AS month,
+    COUNT(*) AS total_classes,
+    SUM(status='P') AS present_days,
+    (SUM(status='P') / COUNT(*)) * 100 AS attendance_percentage
+FROM attendance
+WHERE student_id = 1
+GROUP BY MONTH(date);
+🧠 One-Line DB Explanation (Use This in Viva)
+“The database uses relational tables with foreign keys to maintain role-based access and ensure data integrity for attendance records.”
+
+If you want next, I can:
+
+✅ Write PHP attendance marking logic
+
+✅ Give Chart.js monthly graph code
+
+✅ Create ER diagram labels
+
+✅ Provide full project report content
+
+Just tell me what’s next 🚀
+
+You said:
+provide me the queries all i need category wise try to reach every queries
+ChatGPT said:
+Love this question 😄
+This is exactly what examiners expect when they ask “what queries did you use?”
+
+Below is a COMPLETE, CATEGORY-WISE MySQL QUERY SET for your Attendance Management System.
+You can safely say: “I have covered all CRUD and reporting queries.” ✅
+
+📘 1. DATABASE & TABLE QUERIES
+Create Database
+CREATE DATABASE attendance_system;
+USE attendance_system;
+Show Databases / Tables
+SHOW DATABASES;
+SHOW TABLES;
+👤 2. ADMIN QUERIES
+Insert Admin
+INSERT INTO admin (username, password)
+VALUES ('admin', 'hashed_password');
+Admin Login Check
+SELECT * FROM admin
+WHERE username = 'admin' AND password = 'hashed_password';
+👨‍🏫 3. TEACHER QUERIES (CRUD)
+Add Teacher
+INSERT INTO teachers (name, email, password)
+VALUES ('John Doe', 'john@gmail.com', 'hashed_password');
+View All Teachers
+SELECT * FROM teachers;
+Get Teacher by ID
+SELECT * FROM teachers WHERE teacher_id = 1;
+Update Teacher
+UPDATE teachers
+SET name = 'John Smith', email = 'johnsmith@gmail.com'
+WHERE teacher_id = 1;
+Delete Teacher
+DELETE FROM teachers WHERE teacher_id = 1;
+Teacher Login
+SELECT * FROM teachers
+WHERE email = 'john@gmail.com' AND password = 'hashed_password';
+👨‍🎓 4. STUDENT QUERIES (CRUD)
+Add Student
+INSERT INTO students (name, roll_no, division, semester, email, password)
+VALUES ('Alice', 'CS01', 'A', 5, 'alice@gmail.com', 'hashed_password');
+View All Students
+SELECT * FROM students;
+View Students by Division & Semester
+SELECT * FROM students
+WHERE division = 'A' AND semester = 5;
+Update Student
+UPDATE students
+SET division = 'B', semester = 6
+WHERE student_id = 1;
+Delete Student
+DELETE FROM students WHERE student_id = 1;
+Student Login
+SELECT * FROM students
+WHERE email = 'alice@gmail.com' AND password = 'hashed_password';
+📚 5. SUBJECT QUERIES
+Add Subject
+INSERT INTO subjects (subject_name, semester, teacher_id)
+VALUES ('DBMS', 5, 2);
+View All Subjects
+SELECT * FROM subjects;
+View Subjects by Teacher
+SELECT * FROM subjects
+WHERE teacher_id = 2;
+Update Subject
+UPDATE subjects
+SET subject_name = 'Advanced DBMS'
+WHERE subject_id = 1;
+Delete Subject
+DELETE FROM subjects WHERE subject_id = 1;
+🗓 6. ATTENDANCE QUERIES (MOST IMPORTANT)
+Mark Attendance (Insert)
+INSERT INTO attendance (student_id, subject_id, date, status)
+VALUES (1, 2, '2026-01-20', 'P');
+Prevent Duplicate Attendance (Already Handled by UNIQUE key)
+Update Attendance
+UPDATE attendance
+SET status = 'A'
+WHERE student_id = 1 AND subject_id = 2 AND date = '2026-01-20';
+Delete Attendance (If needed)
+DELETE FROM attendance
+WHERE attendance_id = 5;
+
+
+
+👨‍🏫 7. TEACHER ATTENDANCE VIEW
+Attendance by Subject & Date
+SELECT s.name, a.status
+FROM attendance a
+JOIN students s ON a.student_id = s.student_id
+WHERE a.subject_id = 2 AND a.date = '2026-01-20';
+Attendance Report (Subject-wise)
+SELECT s.name, COUNT(a.status) AS total_classes,
+SUM(a.status = 'P') AS present_days
+FROM attendance a
+JOIN students s ON a.student_id = s.student_id
+WHERE a.subject_id = 2
+GROUP BY s.student_id;
+
+
+
+👨‍🎓 8. STUDENT ATTENDANCE QUERIES
+Student View Own Attendance
+SELECT date, status
+FROM attendance
+WHERE student_id = 1;
+
+Subject-wise Attendance
+SELECT sub.subject_name, a.date, a.status
+FROM attendance a
+JOIN subjects sub ON a.subject_id = sub.subject_id
+WHERE a.student_id = 1;
+
+
+📊 9. MONTHLY ATTENDANCE (FOR GRAPH)
+Monthly Attendance Summary
+SELECT 
+    MONTH(date) AS month,
+    COUNT(*) AS total_classes,
+    SUM(status = 'P') AS present_days
+FROM attendance
+WHERE student_id = 1
+GROUP BY MONTH(date);
+
+Monthly Attendance Percentage
+SELECT 
+    MONTH(date) AS month,
+    ROUND((SUM(status='P') / COUNT(*)) * 100, 2) AS percentage
+FROM attendance
+WHERE student_id = 1
+GROUP BY MONTH(date);
+
+
+🧾 10. ADMIN REPORT QUERIES
+Full Attendance Report
+SELECT st.name, sub.subject_name, a.date, a.status
+FROM attendance a
+JOIN students st ON a.student_id = st.student_id
+JOIN subjects sub ON a.subject_id = sub.subject_id;
+
+Defaulter List (<75%)
+SELECT 
+    student_id,
+    ROUND((SUM(status='P') / COUNT(*)) * 100, 2) AS percentage
+FROM attendance
+GROUP BY student_id
+HAVING percentage < 75;
+
+Database Tables
+CREATE DATABASE attendance_system;
+USE attendance_system;
+
+-- Admin Table
+-- $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+
+CREATE TABLE admin (
+    admin_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Teachers Table
+
+CREATE TABLE teachers (
+    teacher_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Students Table
+
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    roll_no VARCHAR(20) UNIQUE NOT NULL,
+    division VARCHAR(10),
+    semester INT,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Subjects Table
+
+CREATE TABLE subjects (
+    subject_id INT AUTO_INCREMENT PRIMARY KEY,
+    subject_name VARCHAR(100) NOT NULL,
+    semester INT NOT NULL,
+    teacher_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id)
+        ON DELETE SET NULL
+);
+
+-- Attendance Table
+
+CREATE TABLE attendance (
+    attendance_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    date DATE NOT NULL,
+    status ENUM('P','A') NOT NULL,
+    
+    FOREIGN KEY (student_id) REFERENCES students(student_id)
+        ON DELETE CASCADE,
+    FOREIGN KEY (subject_id) REFERENCES subjects(subject_id)
+        ON DELETE CASCADE,
+
+    UNIQUE (student_id, subject_id, date)
+);
+
+Relationship	Type	Explanation
+Teacher → Subject	1 : Many	One teacher can teach many subjects
+Subject → Attendance	1 : Many	One subject has many attendance records
+Student → Attendance	1 : Many	One student has many attendance entries
+Admin → Teachers	1 : Many	Admin manages teachers
+Admin → Students	1 : Many	Admin manages students
+
+
+
+ER diagram
+
+                          ┌──────────────┐
+                          │    ADMIN     │
+                          │──────────────│
+                          │ admin_id (PK)│
+                          │ username     │
+                          │ password     │
+                          └──────────────┘ 
+                                |
+                                | manages
+                                |
+                  ┌─────────────┴──────────────┐
+                  |                             |
+          ┌──────────────┐              ┌──────────────┐
+          │   TEACHERS   │              │   STUDENTS   │
+          │──────────────│              │──────────────│
+          │ teacher_idPK │              │ student_idPK │
+          │ name         │              │ name         │
+          │ email        │              │ roll_no      │
+          │ password     │              │ division     │
+          └──────┬───────┘              │ semester     │
+                 |                      │ email        │
+                 | teaches              │ password     │
+                 |                      └──────┬───────┘
+                 |                             |
+                 |                             | has
+                 |                             |
+          ┌──────▼───────┐            ┌────────▼────────┐
+          │   SUBJECTS   │            │   ATTENDANCE    │
+          │──────────────│            │─────────────────│
+          │ subject_idPK │◄───────────│ attendance_idPK │
+          │ subject_name │  recorded  │ student_id (FK) │
+          │ semester     │            │ subject_id (FK) │
+          │ teacher_idFK │            │ date            │
+          └──────────────┘            │ status (P/A)    │
+                                      └─────────────────┘
+
+📝 Most Important Functions Summary (Exam Ready)
+Function	            Purpose
+mysqli_connect()	    Connect DB
+mysqli_query()	        Run query
+mysqli_fetch_assoc()	Fetch data
+mysqli_num_rows()	    Count rows
+mysqli_error()	        Error
+mysqli_prepare()	    Secure query
+mysqli_stmt_execute()	Execute prepared
+mysqli_close()	        Close connection
+
+
+
+
+
+

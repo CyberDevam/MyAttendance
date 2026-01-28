@@ -10,11 +10,16 @@
 
 <body>
   <nav class="navbar">
-    <h3 class="headTitle">MyAttendance</h3>
+    <a style="text-decoration:none;cursor: pointer;" href="../VIEW_HTML_PAGES/home_page.php" class="headTitle">MyAttendance</a>
     <ul class="nav-links">
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="../VIEW_HTML_PAGES/about.php">About</a></li>
-      <li><a href="./STUDENT/student_dashboard.html">Student Profile</a></li>
+      <li><a href="../VIEW_HTML_PAGES/home_page.php" class="active">Home</a></li>
+      <?php
+      session_start();
+      if (isset($_SESSION['role'])) {
+        echo "<li><a href='../CONTROLLER_PHP/logout.php'>Logout</a></li>";
+      }
+      ?>
+      <li><a href="../VIEW_HTML_PAGES/student_dashboard.php">Student Profile</a></li>
     </ul>
   </nav>
 </body>

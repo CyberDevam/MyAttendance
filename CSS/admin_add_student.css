@@ -1,0 +1,152 @@
+
+
+:root {
+  --cream: #F6F0D7;
+  --light-green: #C5D89D;
+  --mid-green: #9CAB84;
+  --dark-green: #89986D;
+  --navbar-height: 72px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--cream);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--navbar-height);
+}
+
+.main {
+  width: 100%;
+  max-width: 420px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  animation: landing 0.3s ease forwards;
+}
+
+@keyframes landing {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main h1 {
+  text-align: center;
+  color: var(--dark-green);
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+
+.main h2 {
+  text-align: center;
+  margin-bottom: 22px;
+  color: #333;
+}
+
+.labelInput {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #444;
+}
+
+input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: 0.25s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--mid-green);
+  box-shadow: 0 0 0 2px rgba(156, 171, 132, 0.2);
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: var(--mid-green);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: var(--dark-green);
+  transform: translateY(-1px);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .main {
+    padding: 22px;
+    margin: 12px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}
+
+/* Toggle */
+.toggle {
+  display: flex;
+  background: #f2f2f2;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.toggle button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  /* transition: 0.3s; */
+  color: #444;
+}
+
+.toggle button.active {
+  background-color: var(--mid-green);
+  color: white;
+}
+
+/* Smooth hide 
+#studentFields {
+  transition: all 0.3s ease;
+}
+*/

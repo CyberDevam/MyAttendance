@@ -197,16 +197,16 @@ Below is a clean system flow + tech stack + role-wise access you can directly us
 Each role has separate access and permissions.
 
 🔐 Role-Based Access Control (Important for Viva)
-Feature	Admin	Teacher	Student
-Login	✅	✅	✅
-Add/Edit Students	✅	❌	❌
-Add/Edit Teachers	✅	❌	❌
-Add Subjects	✅	❌	❌
-Add Division / Semester	✅	❌	❌
-Mark Attendance	❌	✅	❌
-Edit Attendance	❌	✅	❌
-View Attendance Reports	✅	✅	❌
-View Own Attendance Graph	❌	❌	✅
+Feature	               Admin	Teacher	Student
+Login	                 ✅	      ✅	      ✅
+Add/Edit Students	       ✅	      ❌         ❌
+Add/Edit Teachers	       ✅	      ❌         ❌
+Add Subjects	            ✅	      ❌       	 ❌
+Add Division / Semester	  ✅	      ❌       	 ❌
+Mark Attendance	       ❌	      ✅       	 ❌
+Edit Attendance	       ❌	      ✅       	 ❌
+View Attendance Reports	  ✅      	 ✅	      ❌
+View Own Attendance Graph. ❌	      ❌	      ✅
 ✔ Student can ONLY see their own attendance✔ Teacher can mark & edit attendance✔ Admin controls all master data
 
 🔄 System Flow (Step-by-Step)
@@ -460,3 +460,13 @@ Just say the word 🚀
 
 
 https://aistudio.google.com/apps/temp/1?showAssistant=true&showPreview=true
+
+
+
+
+
+
+
+whose responsivity issues are there
+login page 
+student dashboard

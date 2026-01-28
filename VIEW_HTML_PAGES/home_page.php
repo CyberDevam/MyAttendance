@@ -25,8 +25,8 @@
     </p>
 
     <div class="hero-buttons">
-      <a href="#" class="btn primary">Admin Login</a>
-      <a href="#" class="btn secondary">Student Login</a>
+      <!-- <a href="#" class="btn primary">Admin Login</a> -->
+      <a href="./login.php" class="btn secondary">Student Login</a>
     </div>
   </section>
 
@@ -58,8 +58,9 @@
   </section>
 
 </main>
-
-
+<?php
+ include('../COMPONENTS/Footer.php')
+?>
 
 </body>
 
