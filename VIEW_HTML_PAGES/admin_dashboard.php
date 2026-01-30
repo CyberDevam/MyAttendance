@@ -14,34 +14,6 @@
     header("Location: ./login.php");
   }
   ?>
-  <!-- <h1>Welcome to Admin Dashboard!</h1> -->
-  <!-- Total Students -->
-  <!-- Total Teachers -->
-  <!-- Total Subjects -->
-  <!-- Total Attendance Records -->
-  <!-- ➕ Add Teacher -->
-  <!-- 👁 View All Teachers -->
-  <!-- ✏ Edit Teacher -->
-  <!-- cannot Delete Teacher -->
-  <!-- ➕ Add Student 👁 View All Students ✏ Edit Student ❌ Delete Student 🔍 Filter by Division & Semester -->
-  <!-- ➕ Add Subject
-
-👁 View Subjects
-
-✏ Edit Subject
-
-❌ Delete Subject
-
-👨‍🏫 Assign Teacher to Subject -->
-  <!-- 📅 Date-wise attendance
-
-📘 Subject-wise attendance
-
-👨‍🎓 Student-wise attendance
-
-🚨 Defaulter list (<75%) -->
-
-
   <!-- Header -->
   <header class="header">
     <h1>Admin Dashboard</h1>
@@ -55,19 +27,19 @@
     $sql = "select * from students";
     $result = mysqli_query($conn, $sql);
     $rows = $result->num_rows;
-    echo "<div class='card'>Total Students<br><span>$rows</span></div>";
+    echo "<a href='view_students.php' class='card'>Total Students<br><span>$rows</span></a>";
     $sql = "select * from teachers";
     $result = mysqli_query($conn, $sql);
     $rows = $result->num_rows;
-    echo "<div class='card'>Total Teachers<br><span>$rows</span></div>";
+    echo "<a href='view_teachers.php' class='card'>Total Teachers<br><span>$rows</span></a>";
     $sql = "select * from subjects";
     $result = mysqli_query($conn, $sql);
     $rows = $result->num_rows;
-    echo "<div class='card'>Total Subjects<br><span>$rows</span></div>";
+    echo "<a href='view_subjects.php' class='card'>Total Subjects<br><span>$rows</span></a>";
     $sql = "select * from attendance";
     $result = mysqli_query($conn, $sql);
     $rows = $result->num_rows;
-    echo "<div class='card'>Attendance Records<br><span>$rows</span></div>";
+    echo "<a href='view_attendance.php' class='card'>Attendance Records<br><span>$rows</span></a>";
     ?>
 
   </section>
@@ -76,17 +48,15 @@
     <div class="box">
       <h2>Manage Teachers</h2>
       <button>Add Teacher</button>
-      <button>View Teachers</button>
       <button>Edit Teacher</button>
     </div>
 
     <div class="box">
       <h2>Manage Students</h2>
       <button>Add Student</button>
-      <button>View Students</button>
       <button>Edit Student</button>
-      <button>Delete Student</button>
-      <button>Filter by Division & Semester</button>
+      <!-- <button>Delete Student</button> // in same page as view students
+      <button>Filter by Division & Semester</button> -->
     </div>
 
     <div class="box">
@@ -94,8 +64,8 @@
       <button>Add Subject</button>
       <button>View Subjects</button>
       <button>Edit Subject</button>
-      <button>Delete Subject</button>
-      <button>Assign Teacher</button>
+      <!-- <button>Delete Subject</button> // in same page as view subjects
+      <button>Assign Teacher</button> -->
     </div>
 
     <div class="box">
@@ -107,6 +77,66 @@
     </div>
 
   </section>
+
+  <section class="container-mobile" id="mobilePanel"></section>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const panel = document.getElementById("mobilePanel");
+
+      panel.innerHTML = `
+    <div class="mobile-box">
+      <h2>Management Panel</h2>
+
+      <select id="manageSelect">
+        <option value="">-- Select Module --</option>
+        <option value="teachers">Teachers</option>
+        <option value="students">Students</option>
+        <option value="subjects">Subjects</option>
+        <option value="attendance">Attendance</option>
+      </select>
+
+      <div id="actionButtons" class="mobile-actions"></div>
+    </div>
+  `;
+
+      document.getElementById("manageSelect").addEventListener("change", updateActions);
+    });
+
+    function updateActions() {
+      const value = document.getElementById("manageSelect").value;
+      const actions = document.getElementById("actionButtons");
+
+      const map = {
+        teachers: `
+      <button>Add Teacher</button>
+      <button>View Teachers</button>
+      <button>Edit Teacher</button>
+    `,
+        students: `
+      <button>Add Student</button>
+      <button>View Students</button>
+      <button>Edit Student</button>
+      <button>Delete Student</button>
+      <button>Filter by Division & Semester</button>
+    `,
+        subjects: `
+      <button>Add Subject</button>
+      <button>View Subjects</button>
+      <button>Edit Subject</button>
+      <button>Delete Subject</button>
+      <button>Assign Teacher</button>
+    `,
+        attendance: `
+      <button>Date-wise Attendance</button>
+      <button>Subject-wise Attendance</button>
+      <button>Student-wise Attendance</button>
+      <button>Defaulter List (&lt;75%)</button>
+    `
+      };
+
+      actions.innerHTML = map[value] || "";
+    }
+  </script>
 
 </body>
 

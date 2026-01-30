@@ -18,8 +18,10 @@
       if (isset($_SESSION['role'])) {
         echo "<li><a href='../CONTROLLER_PHP/logout.php'>Logout</a></li>";
       }
+      if(isset($_SESSION['role']) && $_SESSION['role'] === 'student') {
+        echo "<li><a href='../VIEW_HTML_PAGES/student_dashboard.php'>Student Profile</a></li>";
+      }
       ?>
-      <li><a href="../VIEW_HTML_PAGES/student_dashboard.php">Student Profile</a></li>
     </ul>
   </nav>
 </body>
