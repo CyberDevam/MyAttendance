@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyAttendence | View Students</title>
+  <title>View Students | MyAttendance</title>
   <link rel="stylesheet" href="../CSS/Views/students.css">
 </head>
 

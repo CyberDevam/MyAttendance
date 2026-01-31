@@ -6,11 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add User | MyAttendance</title>
   <link rel="stylesheet" href="../CSS/admin_add_student.css">
+  <?php
+  $type = $_GET['type'] ?? 'student'; // default = student
+  ?>
 </head>
 
 <body>
-  <?php 
-  session_start();
+  <?php
+  include('../COMPONENTS/Navbar.php');
+  // session_start();
   if ($_SESSION['role'] !== 'admin') {
     header("Location: ./login.php");
   }
@@ -105,7 +109,7 @@
       subjectBtn.classList.remove('active');
     }
 
-    studentBtn.onclick = () => {
+    function selectStudent() {
       resetButtons();
       studentBtn.classList.add('active');
 
@@ -116,9 +120,9 @@
 
       formTitle.innerText = 'Add Student Details';
       form.action = '../CONTROLLER_PHP/add_student.php';
-    };
+    }
 
-    teacherBtn.onclick = () => {
+    function selectTeacher() {
       resetButtons();
       teacherBtn.classList.add('active');
 
@@ -129,9 +133,9 @@
 
       formTitle.innerText = 'Add Teacher Details';
       form.action = '../CONTROLLER_PHP/add_teacher.php';
-    };
+    }
 
-    subjectBtn.onclick = () => {
+    function selectSubject() {
       resetButtons();
       subjectBtn.classList.add('active');
 
@@ -142,7 +146,23 @@
 
       formTitle.innerText = 'Add Subject Details';
       form.action = '../CONTROLLER_PHP/add_subject.php';
-    };
+    }
+
+    studentBtn.onclick = selectStudent;
+    teacherBtn.onclick = selectTeacher;
+    subjectBtn.onclick = selectSubject;
+
+    const defaultType = "<?php echo $type; ?>";
+
+    if (defaultType === 'teacher') {
+      selectTeacher();
+    } else if (defaultType === 'subject') {
+      selectSubject();
+    } else {
+      selectStudent(); // default
+    }
   </script>
+
 </body>
+
 </html>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyAttendence | Admin Dashboard</title>
+  <title>Admin Dashboard | MyAttendance</title>
   <link rel="stylesheet" href="../CSS/admin_dashboard.css">
 </head>
 
@@ -47,13 +47,13 @@
 
     <div class="box">
       <h2>Manage Teachers</h2>
-      <button>Add Teacher</button>
+      <a href="admin_add_student.php?type=teacher">Add Teacher</a>
       <button>Edit Teacher</button>
     </div>
 
     <div class="box">
       <h2>Manage Students</h2>
-      <button>Add Student</button>
+      <a href="admin_add_student.php?type=student">Add Student</a>
       <button>Edit Student</button>
       <!-- <button>Delete Student</button> // in same page as view students
       <button>Filter by Division & Semester</button> -->
@@ -61,8 +61,7 @@
 
     <div class="box">
       <h2>Manage Subjects</h2>
-      <button>Add Subject</button>
-      <button>View Subjects</button>
+      <a href="admin_add_student.php?type=subject">Add Subject</a>
       <button>Edit Subject</button>
       <!-- <button>Delete Subject</button> // in same page as view subjects
       <button>Assign Teacher</button> -->
@@ -70,10 +69,11 @@
 
     <div class="box">
       <h2>Attendance Reports</h2>
-      <button>Date-wise Attendance</button>
-      <button>Subject-wise Attendance</button>
-      <button>Student-wise Attendance</button>
-      <button>Defaulter List (&lt;75%)</button>
+      <a href="view_attendance.php?type=dwa">Date-wise Attendance</a>
+      <a href="view_attendance.php?type=swa">Subject-wise Attendance</a>
+      <a href="view_attendance.php?type=sda">Student-wise Attendance</a>
+      <button href="view_attendance.php?type=dl">Defaulter List (&lt;75%)</button>
+      <!-- <a href="view_attendance.php?type=dl">Defaulter List (&lt;75%)</a> -->
     </div>
 
   </section>

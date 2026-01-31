@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Student Dashboard</title>
+  <title>Student Dashboard | MyAttendance</title>
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -26,6 +26,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 90px;
 }
 
 .header h1 {
@@ -58,6 +59,11 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+.stats .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
 
 /* Number */
 .stats .card span {
@@ -87,20 +93,27 @@ body {
   color: var(--dark-green);
 }
 
-.box button {
+.box button,
+.box a {
+  display: block;
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
   background-color: var(--mid-green);
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   color: white;
   cursor: pointer;
   font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.box button:hover {
+.box button:hover,
+.box a:hover {
   background-color: var(--dark-green);
+  transform: translateY(-2px);
 }
 
 /* ---------- MOBILE MANAGEMENT PANEL ---------- */
@@ -162,8 +175,10 @@ body {
   color: white;
   font-size: 14px;
   cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .mobile-actions button:hover {
   background-color: var(--dark-green);
+  transform: translateY(-2px);
 }

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyAttendence | View Attendance</title>
+  <title>View Attendance | MyAttendance</title>
   <link rel="stylesheet" href="../CSS/Views/attendance.css">
 </head>
 
@@ -37,8 +37,70 @@
       <tbody>
         <?php
         include('../CONTROLLER_PHP/connectionToDb.php');
+        if (isset($_GET['type']) && $_GET['type'] == 'dwa') {
+          $sql = "SELECT 
+              a.date,
+              s.roll_no,
+              s.name AS student_name,
+              sub.subject_name,
+              a.status
+          FROM attendance a
+          JOIN students s ON a.student_id = s.student_id
+          JOIN subjects sub ON a.subject_id = sub.subject_id
+          WHERE a.date = '2026-01-13'
+          ORDER BY sub.subject_name, s.roll_no;
+          ";
+        } else if (isset($_GET['type']) && $_GET['type'] == 'swa') {
+          $sql = "
+          SELECT 
+              sub.subject_name,
+              s.roll_no,
+              s.name AS student_name,
+              a.date,
+              a.status
+          FROM attendance a
+          JOIN students s ON a.student_id = s.student_id
+          JOIN subjects sub ON a.subject_id = sub.subject_id
+          WHERE sub.subject_id = 2
+          ORDER BY a.date DESC, s.roll_no;
 
-        $sql = "
+        ";
+        } else if (isset($_GET['type']) && $_GET['type'] == 'sda') {
+          $sql = "
+          SELECT 
+              s.roll_no,
+              s.name AS student_name,
+              sub.subject_name,
+              a.date,
+              a.status
+          FROM attendance a
+          JOIN students s ON a.student_id = s.student_id
+          JOIN subjects sub ON a.subject_id = sub.subject_id
+          WHERE s.student_id = 1
+          ORDER BY sub.subject_name, a.date;
+        ";
+        } 
+        // else if (isset($_GET['type']) && $_GET['type'] == 'dl') {
+        //   $sql = "
+        //   SELECT 
+        //   s.student_id,
+        //   s.roll_no,
+        //   s.name AS student_name,
+        //   sub.subject_name,
+        //   COUNT(a.attendance_id) AS total_lectures,
+        //   SUM(a.status = 'P') AS present_count,
+        //   ROUND((SUM(a.status = 'P') / COUNT(a.attendance_id)) * 100, 2) AS attendance_percentage
+        //   FROM attendance a
+        //   JOIN students s ON a.student_id = s.student_id
+        //   JOIN subjects sub ON a.subject_id = sub.subject_id
+        //   GROUP BY s.student_id, sub.subject_id
+        //   HAVING attendance_percentage < 75
+        //   ORDER BY attendance_percentage ASC;
+
+        // ";
+        // }
+         else {
+          $sql = "
         SELECT 
           st.name AS student_name,
           st.roll_no,
@@ -50,6 +112,8 @@
         INNER JOIN subjects sub ON a.subject_id = sub.subject_id
         ORDER BY a.date DESC
       ";
+        }
+
 
         $result = mysqli_query($conn, $sql);
 
